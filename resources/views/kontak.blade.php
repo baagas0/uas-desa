@@ -1,86 +1,73 @@
 @extends('layout_frontend.app')
 @section('content')
-    <!-- Banner -->
-    <div class="col-12 row">
-      <div class="col-lg-9 col-md-9">
-        <div id="carouselExampleControls" class="carousel slide mb-3" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="https://sekartaji.desa.id/desa/upload/artikel/sedang_1667874375_4.jpg"
-                        style="width: 100%; height: 500px" alt="First slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100"
-                        src="https://sekartaji.desa.id/desa/upload/artikel/sedang_1659970765_WhatsApp Image 2022-08-08 at 9.40.47 AM.jpeg"
-                        style="width: 100%; height: 500px" alt="Second slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100"
-                        src="https://sekartaji.desa.id/desa/upload/artikel/sedang_1667874229_spanduk TK.jpg"
-                        style="width: 100%; height: 500px" alt="Third slide">
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-
-
-
-        <!-- Berita -->
-        <div class="row mb-3">
-            <div class="col-12">
-                <h5>Artikel Terkini</h5>
-            </div>
-            <div class="col-md-12 mt-4">
-                <div class="card">
-                    <img class="card-img-top" src="https://sekartaji.desa.id/desa/upload/artikel/sedang_1667874375_4.jpg"
-                        alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 mt-4">
-                <div class="card">
-                    <img class="card-img-top" src="https://sekartaji.desa.id/desa/upload/artikel/sedang_1667874375_4.jpg"
-                        alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 mt-4">
-                <div class="card">
-                    <img class="card-img-top" src="https://sekartaji.desa.id/desa/upload/artikel/sedang_1667874375_4.jpg"
-                        alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Zawiyah Start -->
+    <div class="col-12 text-center my-3">
+        <h3>Contact Us</h3>
     </div>
+    <section>
+        <div>
+
+            <div class="mb-3">
+                <iframe style="border:0; width: 100%; height: 350px;"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31658.515510666337!2d110.62412478741832!3d-7.3185317915082795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a75bf2cf8ff23%3A0xd83d5a9b8610b89b!2sKantor%20Desa%20Karangjati!5e0!3m2!1sid!2sid!4v1672634435932!5m2!1sid!2sid"
+                    frameborder="0" allowfullscreen></iframe>
+            </div><!-- End Google Maps -->
+
+            {{-- bru --}}
+            <div class="col-12 row text-justify">
+                <div class="col-lg-8 col-md-8">
+                    <div>
+                        <h4>Our Address</h4>
+                        <p><i class="fa-sharp fa-solid fa-map-pin fa-lg"></i>
+                            Dusun III, Karangjati, Kec. Wonosegoro, Kabupaten Boyolali, Jawa Tengah 57382</p>
+                    </div>
+
+                    <div>
+                        <h4>Email Us</h4>
+                        <p><i class="fa-solid fa-envelope fa-lg"></i>
+                            ppid@boyolali.go.id</p>
+                    </div>
+
+                    <div>
+                        <h4>Call Us</h4>
+                        <p> <i class="fa-sharp fa-solid fa-phone fa-lg"></i>
+                            (024) 3517261</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h4>Opening Hours</h4>
+                        <strong> <i class="fa-solid fa-clock fa-lg"></i>
+                            Senin - Jum'at : </strong>08.00 - 16.00
+                        <strong>Sabtu - Minggu:</strong> Tutup
+                    </div>
 
 
-    <div class="col-lg-3 col-md-3">
-      sadasda
-    </div>
-    
+                </div>
 
-    </div>
+                <div class="col-lg-4 col-md-4">
+
+                    <div>
+                        <a href="https://web.facebook.com/people/Pemkab-Boyolali/100069280776748/"> <i
+                                class="fa-brands fa-facebook fa-3x p-1"> </i>
+                            {{-- <p>Facebook</p> --}}
+                        </a>
+                        <a href="https://www.instagram.com/pemkab_boyolali/"> <i
+                                class="fa-3x fa-brands fa-instagram p-1"></i>
+                        </a>
+
+                        <a href="https://www.youtube.com/channel/UCKGBzlZWkFYzb6nlN7MfvJA"> <i
+                                class="fa-3x fa-brands fa-youtube p-1"></i>
+                        </a>
+
+                        <a href="https://twitter.com/pemkab_boyolali"> <i class="fa-3x fa-brands fa-twitter p-1"></i>
+                        </a>
+                    </div>
+
+
+                </div>
+
+                <!--End Contact Form -->
+
+            </div>
+    </section>
 @endsection

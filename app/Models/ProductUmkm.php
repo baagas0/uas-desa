@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model
+class ProductUmkm extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'news_id',
+        'image',
         'name',
-        'subject',
-        'content',
+        'price',
+        'owner',
+        'phone_number',
     ];
 }

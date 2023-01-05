@@ -2,16 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Helpers\General;
-use App\Models\Gallery;
+use App\Models\ProductUmkm;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 
-
-class GalleryController extends Controller
+class ProductUmkmController extends Controller
 {
 
     public function __construct()
@@ -25,7 +21,7 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        return view('gallery.main');
+        return view('product-umkm.main');
     }
 
     /**
@@ -35,13 +31,13 @@ class GalleryController extends Controller
     {
         $search = $request->search['value'];
 
-        $data  = Gallery::when($search, function ($q, $search) {
+        $data  = ProductUmkm::when($search, function ($q, $search) {
             return $q->where('name', 'like', "%$search%");
         })->skip($request->start)->take($request->length)->get();
 
         return [
             "draw" => $request->draw,
-            "recordsFiltered" => Gallery::count(),
+            "recordsFiltered" => ProductUmkm::count(),
             "recordsTotal" => $request->length,
             "data" => $data
         ];
@@ -67,25 +63,31 @@ class GalleryController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'title' => 'required|max:255',
-            'photo' => 'required|file',
+            'image' => 'required|file',
+            'name' => 'required|max:255',
+            'price' => 'required|max:255',
+            'owner' => 'required|max:255',
+            'phone_number' => 'required|max:255',
         ]);
 
         if ($validator->fails()) {
             return Response::json($validator->errors(), 400);
         }
 
-        $photo = $request->file('photo');
+        $photo = $request->file('image');
         // Generate a file name with extension
-        $fileName = 'photo-' . time() . '.' . $photo->getClientOriginalExtension();
+        $fileName = 'produk-umkm-' . time() . '.' . $photo->getClientOriginalExtension();
         // Save the file
         $public = 'public/';
         $photo_path = 'photo/'.$fileName;
         $path = $photo->storeAs($public . 'photo', $fileName);
 
-        $resource = Gallery::create([
-            'title' => $request->title,
-            'photo' => $photo_path,
+        $resource = ProductUmkm::create([
+            'image' => $photo_path,
+            'name' => $request->name,
+            'price' => $request->price,
+            'owner' => $request->owner,
+            'phone_number' => $request->phone_number,
         ]);
 
         return $resource;
@@ -123,7 +125,10 @@ class GalleryController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'title' => 'required|max:255',
+            'name' => 'required|max:255',
+            'price' => 'required|max:255',
+            'owner' => 'required|max:255',
+            'phone_number' => 'required|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -131,22 +136,25 @@ class GalleryController extends Controller
         }
 
         $data = [
-            'title' => $request->title,
+            'name' => $request->name,
+            'price' => $request->price,
+            'owner' => $request->owner,
+            'phone_number' => $request->phone_number,
         ];
 
-        if($request->hasFile('photo')) {
-            $photo = $request->file('photo');
+        if($request->hasFile('image')) {
+            $photo = $request->file('image');
             // Generate a file name with extension
-            $fileName = 'spk-' . time() . '.' . $photo->getClientOriginalExtension();
+            $fileName = 'produk-umkm-' . time() . '.' . $photo->getClientOriginalExtension();
             // Save the file
             $path = $photo->storeAs('public/photo', $fileName);
 
-            $data['photo'] = $path;
+            $data['image'] = $path;
         }
 
         
 
-        $resource = Gallery::find($id)->update($data);
+        $resource = ProductUmkm::find($id)->update($data);
 
         return $resource;
     }
@@ -159,7 +167,8 @@ class GalleryController extends Controller
      */
     public function destroy($id)
     {
-        Gallery::find($id)->delete();
+        ProductUmkm::find($id)->delete();
         return true;
     }
 }
+

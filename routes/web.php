@@ -15,13 +15,21 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', [App\Http\Controllers\FrontEndController::class, 'index'])->name('index');
+Route::get('/', [App\Http\Controllers\FrontEndController::class, 'index'])->name('/');
 Route::get('/tentang', [App\Http\Controllers\FrontEndController::class, 'tentang'])->name('tentang');
 Route::get('/berita', [App\Http\Controllers\FrontEndController::class, 'berita'])->name('berita');
+Route::get('/berita/{id}', [App\Http\Controllers\FrontEndController::class, 'beritaView'])->name('beritaView');
+
+Route::get('/produk', [App\Http\Controllers\FrontEndController::class, 'produk'])->name('produk');
+
+Route::post('/add-comment', [App\Http\Controllers\FrontEndController::class, 'addComment'])->name('addComment');
+Route::post('/add-pengaduan', [App\Http\Controllers\FrontEndController::class, 'addPengaduan'])->name('addPengaduan');
+
 Route::get('/vidio', [App\Http\Controllers\FrontEndController::class, 'vidio'])->name('vidio');
 Route::get('/galleri', [App\Http\Controllers\FrontEndController::class, 'galleri'])->name('galleri');
 Route::get('/pengaduan', [App\Http\Controllers\FrontEndController::class, 'pengaduan'])->name('pengaduan');
 Route::get('/kontak', [App\Http\Controllers\FrontEndController::class, 'kontak'])->name('kontak');
+Route::get('/login', [App\Http\Controllers\FrontEndController::class, 'login'])->name('login');
 
 
 Auth::routes();
@@ -60,6 +68,12 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/vidio-activity/store', [App\Http\Controllers\VidioActivityController::class, 'store'])->name('vidio-activity.store');
     Route::post('/vidio-activity/update/{id?}', [App\Http\Controllers\VidioActivityController::class, 'update'])->name('vidio-activity.update');
     Route::post('/vidio-activity/destroy/{id?}', [App\Http\Controllers\VidioActivityController::class, 'destroy'])->name('vidio-activity.destroy');
+
+    Route::get('/product-umkm', [App\Http\Controllers\ProductUmkmController::class, 'index'])->name('product-umkm');
+    Route::get('/product-umkm/data', [App\Http\Controllers\ProductUmkmController::class, 'data'])->name('product-umkm.data');
+    Route::post('/product-umkm/store', [App\Http\Controllers\ProductUmkmController::class, 'store'])->name('product-umkm.store');
+    Route::post('/product-umkm/update/{id?}', [App\Http\Controllers\ProductUmkmController::class, 'update'])->name('product-umkm.update');
+    Route::post('/product-umkm/destroy/{id?}', [App\Http\Controllers\ProductUmkmController::class, 'destroy'])->name('product-umkm.destroy');
 
     Route::get('/complaint', [App\Http\Controllers\ComplaintController::class, 'index'])->name('complaint');
     Route::get('/complaint/data', [App\Http\Controllers\ComplaintController::class, 'data'])->name('complaint.data');

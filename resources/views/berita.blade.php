@@ -5,16 +5,20 @@
         <h3>Berita</h3>
     </div>
     
-    <div class="col-md-4">
-        <div class="card">
-            <img class="card-img-top" src="https://sekartaji.desa.id/desa/upload/artikel/sedang_1667874375_4.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+    @foreach ($news as $item)
+        <div class="col-md-4 mt-4">
+            <div class="card">
+                <img class="card-img-top" src="https://www.kemendesa.go.id/berita/assets/images/artikel/Menteri_Desa_PDTT_22-12-2022_1.jpg"
+                    alt="Card image cap">
+                <div class="card-body">
+                    <small>{{ $item->category->name }}</small>
+                    <h5 class="card-title">{{ $item->title }}</h5>
+                    <p class="card-text">{{ Str::limit($item->content, 10) }}.</p>
+                    <a href="{{ route('beritaView', $item->id) }}" class="btn btn-primary">Comments</a>
+                </div>
             </div>
         </div>
-    </div>
+    @endforeach
     
 </div>
 @endsection

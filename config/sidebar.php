@@ -21,18 +21,19 @@ return [
         'permission' => [1,7],
         'childrens' => []
     ],
-    [
-        'type'  => 'item',
-        'icon'  => 'icon-User',
-        'title' => 'Karyawan',
-        'url'   => '/employees',
-        'permission' => [1,7],
-        'childrens' => []
-    ],
+
     
     [
         'type'  => 'label',
         'title' => 'Extra'
+    ],
+    [
+        'type'  => 'item',
+        'icon'  => 'icon-User',
+        'title' => 'Produk UMKM',
+        'url'   => '/product-umkm',
+        'permission' => [],
+        'childrens' => []
     ],
     [
         'type'  => 'item',

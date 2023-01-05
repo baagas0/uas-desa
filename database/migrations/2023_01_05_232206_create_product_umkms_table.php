@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCommentsTable extends Migration
+class CreateProductUmkmsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('product_umkms', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('news_id');
+            $table->string('image');
             $table->string('name');
-            $table->string('subject');
-            $table->string('content');
+            $table->integer('price');
+            $table->string('owner');
+            $table->string('phone_number');
+
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('product_umkms');
     }
 }
